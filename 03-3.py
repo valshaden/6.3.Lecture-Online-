@@ -58,8 +58,8 @@ print(*res, sep='\n')
 print("=== ЗАДАЧА 1: Книги Льва Толстого ===")
 
 
-# res = conn.execute(select(books).where(books.c.author_id == 1))
-
+#res = conn.execute(select(books).where(books.c.author_id == 1))
+### или
 #res =  conn.execute(select(books.c.title, books.c.year, authors.c.name)
 #                    .select_from(books.join(authors))
 #                    .where(authors.c.name == 'Лев Толстой'))
@@ -70,15 +70,15 @@ print("=== ЗАДАЧА 1: Книги Льва Толстого ===")
 #    .where(authors.c.name == 'Лев Толстой')
 #)
 
-#res = conn.execute(
-#    select(books, authors)
-#    .join(authors)
-#    .where(authors.c.name == 'Лев Толстой')
-#)
+res = conn.execute(
+    select(books, authors)
+    .join(authors)
+    .where(authors.c.name == 'Лев Толстой')
+)
 
-#print(*res, sep='\n')
-#
-#print("\n=== ЗАДАЧА 10: Количество книг по авторам ===")
+print(*res, sep='\n')
+
+print("\n=== ЗАДАЧА 10: Количество книг по авторам ===")
 
 #res = conn.execute(
 #    select(authors.c.name, func.count(books.c.id).label('кол-во книг'))
@@ -86,31 +86,33 @@ print("=== ЗАДАЧА 1: Книги Льва Толстого ===")
 #    .group_by(authors.c.name)
 #)
 
-# res = conn.execute(
-#     select(authors.c.name, func.count())
-#     .join(books)
-#     .group_by(authors.c.name)
-# )
+res = conn.execute(
+    select(authors.c.name, func.count())
+    .join(books)
+    .group_by(authors.c.name)
+)
 
-# print(*res, sep='\n')
+print(*res, sep='\n')
 
-# print ('-------')
-# # ЗАДАЧА 11: Найти авторов, у которых есть книги с названием содержащим "и"
+print ('-------')
+# ЗАДАЧА 11: Найти авторов, у которых есть книги с названием содержащим " и "
 
-# res = conn.execute(
-#     select(authors.c.name, books.c.title)
-#     .select_from(authors.join(books))
-#     .where(books.c.title.like('% и %'))
-#     .group_by(authors.c.name)
-# )
+res = conn.execute(
+    select(authors.c.name, books.c.title)
+    .select_from(authors.join(books))
+    .where(books.c.title.like('% и %'))
+    .group_by(authors.c.name)
+)
 
-# print(*res, sep='\n')
+print(*res, sep='\n')
 
-# # ЗАДАЧА 6: Найти самую раннюю книгу
+# ЗАДАЧА 6: Найти самую раннюю книгу
+print ('-------')
+print ('-------')
 
-# res = conn.execute(
-#     select(books.c.title,func.min(books.c.year))  
-# )
+res = conn.execute(
+    select(books.c.title, func.min(books.c.year))  
+)
 
-# print(*res, sep='\n')
+print(*res, sep='\n')
 

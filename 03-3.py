@@ -85,31 +85,31 @@ print(*result, sep='\n')
 #    .group_by(authors.c.name)
 #)
 
-res = conn.execute(
-    select(authors.c.name, func.count())
-    .join(books)
-    .group_by(authors.c.name)
-)
+# res = conn.execute(
+#     select(authors.c.name, func.count())
+#     .join(books)
+#     .group_by(authors.c.name)
+# )
 
-print(*res, sep='\n')
+# print(*res, sep='\n')
 
-print ('-------')
-# ЗАДАЧА 11: Найти авторов, у которых есть книги с названием содержащим "и"
+# print ('-------')
+# # ЗАДАЧА 11: Найти авторов, у которых есть книги с названием содержащим "и"
 
-res = conn.execute(
-    select(authors.c.name, books.c.title)
-    .select_from(authors.join(books))
-    .where(books.c.title.like('% и %'))
-    .group_by(authors.c.name)
-)
+# res = conn.execute(
+#     select(authors.c.name, books.c.title)
+#     .select_from(authors.join(books))
+#     .where(books.c.title.like('% и %'))
+#     .group_by(authors.c.name)
+# )
 
-print(*res, sep='\n')
+# print(*res, sep='\n')
 
-# ЗАДАЧА 6: Найти самую раннюю книгу
+# # ЗАДАЧА 6: Найти самую раннюю книгу
 
-res = conn.execute(
-    select(books.c.title,func.min(books.c.year))  
-)
+# res = conn.execute(
+#     select(books.c.title,func.min(books.c.year))  
+# )
 
-print(*res, sep='\n')
+# print(*res, sep='\n')
 

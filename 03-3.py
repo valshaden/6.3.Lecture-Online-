@@ -19,13 +19,13 @@ for row in result:
 print(*result, sep='\n')
 
 # ЗАДАЧА 2: Показать все книги
-#result = conn.execute(select(books.c.title))
-#print(*result, sep='\n')
+result = conn.execute(select(books.c.title))
+print(*result, sep='\n')
 
-#print("\n=== ЗАДАЧА 3: Найти Антона Чехова ===")
+print("\n=== ЗАДАЧА 3: Найти Антона Чехова ===")
 
-#res = conn.execute(select(authors).where(authors.c.name == 'Антон Чехов'))
-#print(*res, sep='\n')
+res = conn.execute(select(authors).where(authors.c.name == 'Антон Чехов'))
+print(*res, sep='\n')
 
 
 #print("\n=== ЗАДАЧА 4: Найти 'Война и мир' ===")

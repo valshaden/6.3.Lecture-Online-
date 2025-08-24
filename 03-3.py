@@ -28,24 +28,24 @@ res = conn.execute(select(authors).where(authors.c.name == 'Антон Чехо�
 print(*res, sep='\n')
 
 
-#print("\n=== ЗАДАЧА 4: Найти 'Война и мир' ===")
+print("\n=== ЗАДАЧА 4: Найти 'Война и мир' ===")
 
-#res = conn.execute(select(books).where(books.c.title == 'Война и мир'))
-#print(*res, sep='\n')
+res = conn.execute(select(books).where(books.c.title == 'Война и мир'))
+print(*res, sep='\n')
 
 # самостоятельно 
 
-#print("\n=== ЗАДАЧА 6: Книги 1833 года ===")
+print("\n=== ЗАДАЧА 6: Книги 1833 года ===")
 
-#result = conn.execute(select(books.c.title).where(books.c.year > 1869))
+result = conn.execute(select(books.c.title).where(books.c.year > 1869))
 
-#print(*result, sep='\n')
+print(*result, sep='\n')
 
-#print("\n=== ЗАДАЧА 9: Общее количество книг ===")
+print("\n=== ЗАДАЧА 9: Общее количество книг ===")
 
-#result = conn.execute(select(func.count()).select_from(books))
-#result = result.scalar()
-#print(result)
+result = conn.execute(select(func.count()).select_from(books))
+result = result.scalar()
+print(result)
 
 #print ("\n#  Сортировка авторов по алфавиту")
 

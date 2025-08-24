@@ -115,4 +115,3 @@ res = conn.execute(
 )
 
 print(*res, sep='\n')
-

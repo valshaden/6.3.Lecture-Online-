@@ -44,17 +44,18 @@ print(*result, sep='\n')
 print("\n=== ЗАДАЧА 9: Общее количество книг ===")
 
 result = conn.execute(select(func.count()).select_from(books))
+#print(*result)
 result = result.scalar()
 print(result)
 
-#print ("\n#  Сортировка авторов по алфавиту")
+print ("\n#  Сортировка авторов по алфавиту")
 
-#res = conn.execute(select(authors.c.name).order_by(authors.c.name).limit(3))
-#print(*res, sep='\n')
+res = conn.execute(select(authors.c.name).order_by(authors.c.name).limit(3))
+print(*res, sep='\n')
 
 # отсортируй res по фамилии автора (питоном)
 
-#print("=== ЗАДАЧА 1: Книги Льва Толстого ===")
+print("=== ЗАДАЧА 1: Книги Льва Толстого ===")
 
 
 # res = conn.execute(select(books).where(books.c.author_id == 1))

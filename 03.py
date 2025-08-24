@@ -20,4 +20,4 @@ books = Table('books', metadata,
     Column('author_id', Integer, ForeignKey('authors.id'))
 )
 
-metadata.create_all(engine) 
+metadata.create_all(engine)
